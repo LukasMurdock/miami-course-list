@@ -56,14 +56,17 @@ const CourseSections = ({
       </h2>
       <div>
         {data.courseSections.map((courseSection) => (
-          <div className="p-4 m-1 rounded-lg hover:bg-gray-50">
+          <div
+            className="p-4 m-1 rounded-lg hover:bg-gray-50"
+            key={courseSection.courseId}
+          >
             <div className="flex">
-              <h3 className="font-semibold flex-grow">
+              <h3 className="flex-grow font-semibold">
                 {courseSection.courseSubjectCode} {courseSection.courseNumber}{' '}
                 {courseSection.courseSectionCode}
               </h3>
               <p className="flex-shrink">
-                <span className="text-gray-100 bg-gray-700 text-xs rounded-full px-2 py-1">
+                <span className="px-2 py-1 text-xs text-gray-100 bg-gray-700 rounded-full">
                   {courseSection.courseId}
                 </span>
               </p>
@@ -74,7 +77,14 @@ const CourseSections = ({
             </p>
             <div>
               {courseSection.courseSchedules.map((courseTime) => (
-                <div>
+                <div
+                  key={
+                    courseSection.courseId +
+                    courseTime.days +
+                    courseTime.startTime +
+                    courseTime.endTime
+                  }
+                >
                   <div className="grid grid-cols-5">
                     <MiniCalTimeBlock courseTime={courseTime} day="M" />
                     <MiniCalTimeBlock courseTime={courseTime} day="T" />

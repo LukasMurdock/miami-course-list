@@ -31,16 +31,18 @@ const Home: NextPage = () => {
       </Head>
 
       <main>
-        <h1 className="text-center m-10 font-bold">Miami Course List</h1>
+        <h1 className="m-10 font-bold text-center">Miami Course List</h1>
         <div className="max-w-md m-auto">
           {courses.map((course) => (
-            <CourseSections
-              filters={{
-                ...filters,
-                courseSubjectCode: course.courseSubjectCode,
-                courseNumber: course.courseNumber
-              }}
-            />
+            <div key={course.courseSubjectCode + course.courseNumber}>
+              <CourseSections
+                filters={{
+                  ...filters,
+                  courseSubjectCode: course.courseSubjectCode,
+                  courseNumber: course.courseNumber
+                }}
+              />
+            </div>
           ))}
         </div>
       </main>
