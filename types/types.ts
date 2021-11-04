@@ -1,3 +1,12 @@
+export type StaticSelectionProps = {
+  semesterYearEnd: string;
+  selectedSeason: 'Fall' | 'Winter' | 'Spring' | 'Summer';
+  courses: {
+    courseSubjectCode: string;
+    courseNumber: string;
+  }[];
+};
+
 export type CourseSchedule = {
   startDate: string; // 2022-01-24
   endDate: string; // 2022-05-13

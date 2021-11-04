@@ -1,3 +1,5 @@
+import { StaticSelectionProps } from './types/types';
+
 const staticSelection: StaticSelectionProps = {
   semesterYearEnd: '2022',
   selectedSeason: 'Spring',
@@ -26,12 +28,3 @@ const staticSelection: StaticSelectionProps = {
 };
 
 export default staticSelection;
-
-type StaticSelectionProps = {
-  semesterYearEnd: string;
-  selectedSeason: 'Fall' | 'Winter' | 'Spring' | 'Summer';
-  courses: {
-    courseSubjectCode: string;
-    courseNumber: string;
-  }[];
-};
